@@ -1,4 +1,5 @@
 import { Component } from "react"
+import CounterButtonPlus from "./CounterButtonPlus"
 
 class Count extends Component {
   constructor(props){
@@ -27,6 +28,12 @@ class Count extends Component {
     }
   }
 
+  getValue = (number) => {
+    this.setState({
+      number : number
+    })
+  }
+
   render() {
     return(
       <div>
@@ -41,8 +48,10 @@ class Count extends Component {
         <button onClick={() => this.decrement()}>-</button>
 
         {/* mengeksekusi arrow function yang memanggil si function increment */}
-        <button onClick={() => this.increment()}>+</button>
+        {/* <button onClick={() => this.increment()}>+</button> */}
         {/* berarti onclick itu callback */}
+
+        <CounterButtonPlus numberCount={this.state.number} callback={this.getValue}/>
       </div>
     )
   }
@@ -60,3 +69,6 @@ export default Count;
 //     console.log("b");
 // }
 // a(b)
+
+// react -> challenge -> calculator 
+// sub folder react setara dengan javascript
