@@ -3,6 +3,7 @@ import './App.css';
 import { Component } from 'react';
 import Count from './Count';
 import ChildComponent from './ChildComponent';
+import Trainees from './Trainees';
 
 class App extends Component {
 
@@ -23,12 +24,13 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <header className="App-header">
+        {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-        </header>
-        <h1>{this.state.message}</h1>
+        </header> */}
+        {/* <h1>{this.state.message}</h1> */}
         {/* <ChildComponent name={'Mason Mount'} callback={this.getMessage} /> */}
-        <Count/>
+        {/* <Count/> */}
+        <Trainees/>
       </div>
     );
   }
