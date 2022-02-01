@@ -5,6 +5,7 @@ import Count from './Count';
 import ChildComponent from './ChildComponent';
 import Trainees from './Trainees';
 import Clock from './Clock';
+import ListOfTrainee from './ListOfTrainee';
 
 class App extends Component {
 
@@ -32,7 +33,8 @@ class App extends Component {
         {/* <ChildComponent name={'Mason Mount'} callback={this.getMessage} /> */}
         {/* <Count/> */}
         {/* <Trainees/> */}
-        <Clock/>
+        {/* <Clock/> */}
+        <ListOfTrainee/>
       </div>
     );
   }
