@@ -1,4 +1,6 @@
 import { Component } from "react";
+import FormTrainees from "./FormTrainees";
+import ListTrainees from "./ListTrainees";
 
 class ListOfTrainee extends Component {
 
@@ -12,11 +14,31 @@ class ListOfTrainee extends Component {
 
     // Kalau ga perlu props bisa pakai ini
     state = {
-        trainees : ["Mason", "Mount", "Phil", "Foden"],
+        trainees : [
+            {
+                name : 'Mason',
+                age : 22,
+                address : 'Jakarta'
+            },{
+                name : 'Mount',
+                age : 22,
+                address : 'Bandung'
+            },{
+                name : 'Phil',
+                age : 22,
+                address : 'Semarang'
+            },{
+                name : 'Foden',
+                age : 22,
+                address : 'Yogyakarta'
+            },
+            // "Mason", "Mount", "Phil", "Foden"
+        ],
         // trainees : []
         newName : '',
         isValid : true,
-        errorName : ''
+        errorName : '',
+        newTrainees: {}
     }
 
     handleChange = (event) => {
@@ -52,8 +74,9 @@ class ListOfTrainee extends Component {
         if (this.state.newName !== ""){
             // this.state.trainees.push(this.state.newName)
             // this.setState(this.state)
+            this.state.newTrainees.name = this.state.newName
             this.setState({
-                trainees : [...this.state.trainees, this.state.newName]
+                trainees : [...this.state.trainees, this.state.newTrainees]
             })
         }
         // mencegah terjadinya aksi event bawaannya dom
@@ -77,25 +100,27 @@ class ListOfTrainee extends Component {
             this.state.trainees.length > 0 ?
             <div>
                 {/* onClick di submti bisa di ganti dengan on submit pada tag form */}
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        <input type="text" className="form-control" onChange={this.handleChange}/>
-                        <p>{this.state.errorName}</p>
+                {/* <form onSubmit={this.handleSubmit}> */}
+                    {/* <label> */}
+                        {/* <input type="text" className="form-control" onChange={this.handleChange}/> */}
+                        {/* <p>{this.state.errorName}</p> */}
                         {/* penjabaran mengapa handle change punya event */}
                         {/* sintak panjangnya dari input type diatas */}
                         {/* <input type="text" className="form-control" onChange={(event)=> this.handleChange(event)}/> */}
-                    </label>
+                    {/* </label> */}
                     {/* <input type="button" value="submit" className="btn btn-primary" onClick={this.handleSubmit}/> */}
                     {/* <input type="submit" value="submit" className="btn btn-primary" onClick={this.handleSubmit}/> */}
                     {/* mau input atau button, asalkan typenya =submit bisa pakai onSubmit */}
-                    <input type="submit" value="submit" className="btn btn-primary" disabled={this.state.isValid}/>
-                </form>
-                <ul>
+                    {/* <input type="submit" value="submit" className="btn btn-primary" disabled={this.state.isValid}/> */}
+                {/* </form> */}
+                <FormTrainees isValid={this.state.isValid} errorName={this.state.errorName} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+                {/* <ul> */}
                     {/* {items} */}
-                    {this.state.trainees.map((trainee, index) => {
-                        return (<li key={index} className="list-group-item list-group-item-action">{trainee}</li>)
-                    })}
-                </ul>
+                    {/* {this.state.trainees.map((trainee, index) => {
+                        return (<li key={index} className="list-group-item list-group-item-action">{trainee.name}<br/>{trainee.age}<br/>{trainee.address}</li>)
+                    })} */}
+                {/* </ul> */}
+                <ListTrainees trainees={this.state.trainees} />
             </div> :
             <>
                 <h1 className="display-5">no value available</h1>
