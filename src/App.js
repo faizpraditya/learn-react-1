@@ -1,35 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
+import ClickCounter from './ClickCounter';
+import HoverCounter from './HoverCounter';
 
-function App() {
-  const name = "tes"
-  function getButtonText() {
-    return "Click Me"
+class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+
+    }
   }
-  const buttonName = {text: "Click Me"}
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Welcome {name}</h1>
-        <label htmlFor='name'>Enter Name</label>
-        <input id='name' type="text"></input>
-        <button>{getButtonText()}</button>
-        <button>{buttonName.text}</button>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  
+  render(){
+    return (
+      <>
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+          </header>
+          <ClickCounter/><br/>
+          <HoverCounter/>
+        </div>
+      </>
+    )
+  }
 }
+
 
 export default App;
